@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="GeoLocApp_v2.Admin.LocationsTable"
+             Title="Locations Table">
+        <ContentPage.Content>
+            <ListView x:Name="locTable" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid >
+                                <Label Grid.Column="0" Text="{Binding locationName}" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                                <Label Grid.Column="1" Text="{Binding locationId}" HorizontalTextAlignment="Center"/>
+                                <Label Grid.Column="2" Text="{Binding missionId}" HorizontalTextAlignment="Center" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ContentPage.Content> 
+</ContentPage>

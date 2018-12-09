@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="GeoLocApp_v2.Pages.LocationInput"
+             xmlns:local="clr-namespace:GeoLocApp_v2" 
+             Title="Location Input (Edit)">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:PositiveLengthToBooleanConverter x:Key="dataHasBeenEntered" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+     <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Delete" Clicked="DeletLocation" />
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15">
+
+            <Button Text="Get Location" Clicked="GetLocation" BorderColor="Black" BorderWidth="1"/>
+            <Label Text="" x:Name="l_gps" FontSize="Medium" />
+
+            <Label Text="Location name:" FontSize="Medium" />
+            <Entry Text="" x:Name="l_Name" FontSize="Small" />
+            
+            <Label Text="Location hint::" FontSize="Medium" />
+            <Entry Text="" x:Name="l_Hint" FontSize="Small" />
+
+            <Button Text="Add Photo" Clicked="GoToAddPhoto" BorderColor="Black" BorderWidth="1"/>
+            <Image/>
+ 
+            <Button Text="Save" Clicked="SaveLocation" BorderColor="Black" BorderWidth="1" IsEnabled="false"> 
+                <Button.Triggers>
+                    <MultiTrigger TargetType="Button">
+                        <MultiTrigger.Conditions>
+                            <BindingCondition Binding="{Binding Source={x:Reference l_Name}, Path=Text.Length,
+                                Converter={StaticResource dataHasBeenEntered} }" Value="true"/>
+                            <BindingCondition Binding="{Binding Source={x:Reference l_Hint}, Path=Text.Length,
+                                Converter={StaticResource dataHasBeenEntered} }" Value="true"/>
+                            <BindingCondition Binding="{Binding Source={x:Reference l_gps}, Path=Text.Length,
+                                Converter={StaticResource dataHasBeenEntered} }" Value="true"/>
+                        </MultiTrigger.Conditions>
+                        <MultiTrigger.Setters>
+                            <Setter Property="IsEnabled" Value="true"/>
+                        </MultiTrigger.Setters>
+                    </MultiTrigger>
+                </Button.Triggers>
+            </Button>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

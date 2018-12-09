@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="GeoLocApp_v2.Pages.NewMission">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Save Online" Clicked="SaveMission"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15">
+            <Label Text="Mission name:" FontSize="Medium" />
+            <Entry Text="mission name" x:Name="m_name" FontSize="Small" />
+            <Label Text="Description:" FontSize="Medium" />
+            <Entry Text="..." x:Name="m_des" FontSize="Small" />
+            <Editor Text="text something ..." FontSize="Small" Margin="0" />
+            <Button Text="submit" Clicked="submitMission" BorderColor="Black" BorderWidth="1"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="GeoLocApp_v2.Pages.MyMissionEditor"
+             xmlns:local="clr-namespace:GeoLocApp_v2"
+             Title="Mission Editor">
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:PositiveLengthToBooleanConverter x:Key="dataHasBeenEntered" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+     <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Delete" Clicked="DeleteMission"/>
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout Spacing="20" Padding="15">
+            
+            <Label Text="Mission name:" FontSize="Medium" />
+            <Entry Text="" x:Name="m_Name" FontSize="Small" />
+            <Label Text="Description:" FontSize="Medium" />
+            <Entry Text="" x:Name="m_Des" FontSize="Small" />
+
+
+            <Button StyleId="LocButton"  Text="Locations +" Clicked="ViewLocations" BorderColor="Black" BorderWidth="1" IsEnabled="false">
+                <Button.Triggers>
+                    <MultiTrigger TargetType="Button">
+                        <MultiTrigger.Conditions>
+                            <BindingCondition Binding="{Binding Source={x:Reference m_Name}, Path=Text.Length,
+                                Converter={StaticResource dataHasBeenEntered} }" Value="true"/>
+                            <BindingCondition Binding="{Binding Source={x:Reference m_Des}, Path=Text.Length,
+                                Converter={StaticResource dataHasBeenEntered} }" Value="true"/>
+                        </MultiTrigger.Conditions>
+                        <MultiTrigger.Setters>
+                            <Setter Property="IsEnabled" Value="true"/>
+                        </MultiTrigger.Setters>
+                    </MultiTrigger>
+                </Button.Triggers>
+
+
+            </Button>
+            
+            <Button StyleId="SaveButton" Text="Save Mission" Clicked="SaveMissionLocal" BorderColor="Black" BorderWidth="1" IsEnabled="false">
+                <Button.Triggers>
+                    <MultiTrigger TargetType="Button">
+                        <MultiTrigger.Conditions>
+                            <BindingCondition Binding="{Binding Source={x:Reference m_Name}, Path=Text.Length,
+                                Converter={StaticResource dataHasBeenEntered} }" Value="true"/>
+                            <BindingCondition Binding="{Binding Source={x:Reference m_Des}, Path=Text.Length,
+                                Converter={StaticResource dataHasBeenEntered} }" Value="true"/>
+                        </MultiTrigger.Conditions>
+                        <MultiTrigger.Setters>
+                            <Setter Property="IsEnabled" Value="true"/>
+                        </MultiTrigger.Setters>
+                    </MultiTrigger>
+                </Button.Triggers>
+            </Button>
+                
+            <Editor Text="Once your mission is ready upload to share with other players" FontSize="Small" Margin="0" />
+            
+            <Button StyleId="UploadButton" Text="Upload" Clicked="UploadMission" BorderColor="Black" BorderWidth="1"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

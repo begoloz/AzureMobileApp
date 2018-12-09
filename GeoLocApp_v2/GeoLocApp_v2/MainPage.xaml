@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="GeoLocApp_v2.MainPage">
+
+    <Grid Padding="5,0" RowSpacing="2" ColumnSpacing="2" BackgroundColor="Teal">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48"/>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="24"/>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+             <ColumnDefinition Width="*"/>
+             <ColumnDefinition Width="*"/>
+             <ColumnDefinition Width="*"/>
+             <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        
+
+        <Label x:Name="LabelInput1" Grid.Row="1" Grid.Column="0" 
+               FontSize="12" FontAttributes="Bold" TextColor="White"  
+               HorizontalTextAlignment="End" VerticalTextAlignment="Center"
+               LineBreakMode="NoWrap" 
+               Grid.ColumnSpan="2" BackgroundColor="Transparent" 
+               Text="Mission Name :  "/>
+        
+        <Entry x:Name="Input1"  BackgroundColor="White" 
+               Grid.Row="1" Grid.Column="2"
+               Placeholder="Entry1" TextColor="Black" FontSize="12"
+               Grid.ColumnSpan="2"/>
+        
+         <Label x:Name="LabelInput2" Grid.Row="2" Grid.Column="0" 
+               FontSize="12" FontAttributes="Bold" TextColor="White"  
+               HorizontalTextAlignment="End" VerticalTextAlignment="Center"
+               LineBreakMode="NoWrap" 
+               Grid.ColumnSpan="2" BackgroundColor="Transparent" 
+               Text="Mission Maker :  "/>
+        
+        <Entry x:Name="Input2"  BackgroundColor="White" 
+               Grid.Row="2" Grid.Column="2" 
+               Placeholder="Entry2" TextColor="Black" FontSize="12"
+               Grid.ColumnSpan="2"/>
+        
+         <Label x:Name="LabelInput3" Grid.Row="3" Grid.Column="0" 
+               FontSize="12" FontAttributes="Bold" TextColor="White"  
+               HorizontalTextAlignment="End" VerticalTextAlignment="Center"
+               LineBreakMode="NoWrap" 
+               Grid.ColumnSpan="2" BackgroundColor="Transparent" 
+               Text="Hint 1 :  "/>
+        
+        <Entry x:Name="Input3"  BackgroundColor="White" 
+               Grid.Row="3" Grid.Column="2" 
+               Placeholder ="Entry3" TextColor="Black" FontSize="12"
+               Grid.ColumnSpan="2"/>
+              
+        
+        <Button Text="Submit" Grid.Row="4" Grid.Column="0" 
+                BackgroundColor="Silver" BorderRadius="2"
+                TextColor="Black" FontSize="12" 
+                Grid.ColumnSpan="4"
+                Clicked="Submit"
+                 />
+               
+
+        <Button Text="Recover" Grid.Row="5" Grid.Column="0" 
+                BackgroundColor="Silver" BorderRadius="2"
+                TextColor="Black" FontSize="12" 
+                Grid.ColumnSpan="4"
+                Clicked="RecoverAsync"/>
+
+        <Label x:Name="LabelMN" Grid.Row="6" Grid.Column="0" 
+               FontSize="12" FontAttributes="Bold" TextColor="Navy"  
+               HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+               LineBreakMode="NoWrap" 
+               Grid.ColumnSpan="1" BackgroundColor="White" 
+               Text="Mission Name"/>
+        
+        <Label x:Name="LabelMM" Grid.Row="6" Grid.Column="1" 
+               FontSize="12" FontAttributes="Bold" TextColor="Navy"  
+               HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+               LineBreakMode="NoWrap" 
+               Grid.ColumnSpan="1" BackgroundColor="White" 
+               Text="Mission Maker"/>
+        
+        <Label x:Name="LabelHL1" Grid.Row="6" Grid.Column="2" 
+               FontSize="12" FontAttributes="Bold" TextColor="Navy"  
+               HorizontalTextAlignment="Center" VerticalTextAlignment="Center" 
+               LineBreakMode="NoWrap" 
+               Grid.ColumnSpan="1" BackgroundColor="White" 
+               Text="Hint 1"/>
+
+        <Label x:Name="LabelMN1" Grid.Row="7" Grid.Column="0" 
+               FontSize="12" FontAttributes="Bold" TextColor="Black"  
+               HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+               LineBreakMode="NoWrap" 
+               Grid.ColumnSpan="1" BackgroundColor="White" 
+               Text="-"/>
+        
+        <Label x:Name="LabelMM1" Grid.Row="7" Grid.Column="1" 
+               FontSize="12" FontAttributes="Bold" TextColor="Black"  
+               HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+               LineBreakMode="NoWrap" 
+               Grid.ColumnSpan="1" BackgroundColor="White" 
+               Text="-"/>
+        
+        <Label x:Name="LabelHL11" Grid.Row="7" Grid.Column="2" 
+               FontSize="12" FontAttributes="Bold" TextColor="Black"  
+               HorizontalTextAlignment="Center" VerticalTextAlignment="Center" 
+               LineBreakMode="NoWrap" 
+               Grid.ColumnSpan="1" BackgroundColor="White" 
+               Text="-"/>
+
+         <Label x:Name="LabelFullTable" Grid.Row="8" Grid.Column="0" 
+               FontSize="12" FontAttributes="Bold" TextColor="Black"  
+               HorizontalTextAlignment="Center" VerticalTextAlignment="Center" 
+               LineBreakMode="CharacterWrap" Grid.RowSpan="2"
+               Grid.ColumnSpan="4" BackgroundColor="White" 
+               Text="-" />
+
+        <ListView x:Name="listf" Grid.Row="10" Grid.Column="0"
+                  Grid.ColumnSpan="4" Grid.RowSpan="4"
+                  BackgroundColor="Silver"
+                  BindingContext="t"
+                  >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid >
+                            <Label Grid.Column="0" Text="{Binding missionName}" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                            <Label Grid.Column="1" Text="{Binding missionMaker}" HorizontalTextAlignment="Center"/>
+                            <Label Grid.Column="2" Text="{Binding hintL1}" HorizontalTextAlignment="Center" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <!--<ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Label Text="{Binding  missionName}" FontAttributes="Bold" />
+                            <Label Grid.Column="1" Text="{Binding Age}" />
+                            <Label Grid.Column="2" Text="{Binding Location}" HorizontalTextAlignment="End" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+                </ListView.ItemTemplate>-->
+         
+        </ListView>
+        
+    </Grid>
+</ContentPage>

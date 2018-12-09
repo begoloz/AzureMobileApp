@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="GeoLocApp_v2.Pages.StartMenu"
+             Title="Start Menu">
+      <StackLayout>
+         <Button Text="Play" Clicked="Handle_Clicked_PlayMenu" BorderColor="Black" BorderWidth="1"/>
+         <Button Text="My Missions" Clicked="Handle_Clicked_MyMissions" BorderColor="Black" BorderWidth="1"/>
+        <!-- <Button Text="Create Mission" Clicked="Handle_Clicked" BorderColor="Black" BorderWidth="1"/>
+         <Button Text="Profile" BorderColor="Black" BorderWidth="1"/>
+         <Button Text="Rankings" BorderColor="Black" BorderWidth="1"/>-->
+         <!--<Button Text="Log In" Clicked="Handle_Clicked_LogIn" BorderColor="Black" BorderWidth="1"/>-->
+
+         <!--<Button Text="Table Locations" Clicked="GoTableLoc" BorderColor="Black" BorderWidth="1"/>-->
+      </StackLayout>
+   
+</ContentPage>
