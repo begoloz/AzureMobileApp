@@ -20,7 +20,7 @@ namespace GeoLocApp_v2.Services
     /// </summary>
     public  class GeoLocService : ContentPage
     {
-        const string AzureUrl = "https://geolocapp.azurewebsites.net";
+        const string AzureUrl = {AZUREURL};
         MobileServiceClient client;
         IMobileServiceTable<MissionDataModel> missionsTable;
         IMobileServiceTable<OnlineModels.LocationOnlineModel> locationsTable;
